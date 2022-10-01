@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "reflect-metadata";
+import React from "react";
+import { Loading } from "template/component/Loading";
+import { AppModel } from "App.model";
+import { Route, Routes } from "react-router-dom";
+import Layout from "template/component/Layout";
 
-function App() {
+const HomePage = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "HomePage" */
+      "app/components/Home"
+    )
+);
+
+const NotFoundPage = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "NotFoundPage" */
+      "app/components/NotFound"
+    )
+);
+
+const LoginPage = React.lazy(
+  () =>
+    import(
+      /* webpackChunkName: "LoginPage" */
+      "app/pages/login"
+    )
+);
+
+const App: React.FunctionComponent = () => {
+  const model = new AppModel();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>{model.greeting}</h1>
+      <React.Suspense fallback={<Loading isLoading={true} />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route element={<NotFoundPage />} />
+          </Route>
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </React.Suspense>
+    </>
   );
-}
+};
 
 export default App;
