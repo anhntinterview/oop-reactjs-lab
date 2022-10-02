@@ -24,8 +24,8 @@ const NotFoundPage = React.lazy(
 const LoginPage = React.lazy(
   () =>
     import(
-      /* webpackChunkName: "LoginPage" */
-      "app/pages/login"
+      /* webpackChunkName: "PostPage" */
+      "app/pages/post"
     )
 );
 
@@ -41,7 +41,7 @@ const App: React.FunctionComponent = () => {
             <Route index element={<HomePage />} />
             <Route element={<NotFoundPage />} />
           </Route>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/post" element={<LoginPage />} />
         </Routes>
       </React.Suspense>
     </>

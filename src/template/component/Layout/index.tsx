@@ -21,7 +21,7 @@ const Layout: React.FunctionComponent = () => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/first">First</Link>
+            <Link to="/post">Post</Link>
           </li>
           <li>
             <Link to="/second">Second</Link>
