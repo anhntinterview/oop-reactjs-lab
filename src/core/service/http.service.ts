@@ -1,5 +1,5 @@
 import { Service } from 'typedi';
-import { UseQuery, UseMutation } from "core/redux/app/_type";
+import { UseQuery, UseMutation } from "core/redux/type";
 
  function useRTKQuery<R>(useQuery: UseQuery<R>) {
     const { data, isLoading, isFetching, isSuccess, isError, error, refetch } =

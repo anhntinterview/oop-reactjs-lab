@@ -1,4 +1,4 @@
-import { STATUS } from '../../../core/redux/app/constant';
+import { STATUS } from './constant';
 
 export class RTKQStateItemDTO<T> {
     readonly [name: string]: T;

@@ -1,16 +1,16 @@
 import * as React from 'react';
-import PostModel from '../../controller/post.model';
-import { Loading } from 'template/component/Loading';
+import PostModel from 'app/controller/post.model';
 import { Posts, PostError } from 'app/components/Post';
+import { Loading } from 'template/component/Loading';
 
 export interface IPostProps {
     model: PostModel;
 }
 
 const Post: React.FunctionComponent<IPostProps> = (props) => {
-    const postModel = new PostModel();
+    const { model } = props;
     const { data, isLoading, isFetching, isSuccess, isError, error, refetch } =
-        postModel.posts;
+        model.posts;
 
     let content;
 
@@ -26,9 +26,7 @@ const Post: React.FunctionComponent<IPostProps> = (props) => {
 
     return (
         <>
-            <h1>
-                Post List:
-            </h1>
+            <h1>Post List:</h1>
             {content}
         </>
     );

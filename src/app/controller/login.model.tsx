@@ -2,14 +2,14 @@ import { Container } from 'typedi';
 import { validateSync, ValidationError } from 'class-validator';
 import { LoginBodyRO } from 'shared/interface/user.interface';
 import UserService from 'template/service/user.service';
-import { useGetPostsQuery } from 'core/redux/slice';
+import { useGetPostsQuery } from 'template/redux/slice';
 import { useMemo } from 'react';
 import classnames from 'classnames';
 import { Loading } from 'template/component/Loading';
 import { PostDTO } from 'shared/dto/post.dto';
-import { UseQuery } from 'core/redux/app/_type';
+import { UseQuery } from 'core/redux/type';
 
-export default class LoginModel {
+export default class LoginController {
     public readonly userService = Container.get(UserService);
 
     // public get isLogin() {

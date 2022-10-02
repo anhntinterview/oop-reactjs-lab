@@ -1,6 +1,6 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { CurriedGetDefaultMiddleware } from "@reduxjs/toolkit/dist/getDefaultMiddleware";
-import coreSliceApiReducer, { coreSliceApi } from "core/redux/slice";
+import coreSliceApiReducer, { coreSliceApi } from "template/redux/slice";
 
 export const store = configureStore({
   reducer: {
