@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 import classnames from 'classnames';
 import { Loading } from 'template/component/Loading';
 import { PostDTO } from 'shared/dto/post.dto';
+import { UseQuery } from 'core/redux/app/_type';
 
 function sortPosts(loginModel: LoginModel) {
     const data: Array<PostDTO> | unknown = loginModel.posts.data;
@@ -43,19 +44,19 @@ function sortPosts(loginModel: LoginModel) {
 //                     </p>
 //                 </div>
 //             ));
-    
+
 //             const containerClassname = classnames('posts-container', {
 //                 disabled: isFetching,
 //             });
-    
+
 //             return <div className={containerClassname}>{renderedPosts}</div>;
 //         }
-//     } else 
-    
+//     } else
+
 // }
 
 // export function postError(loginModel: LoginModel) {
-    
+
 //     if (typeof error === 'string') {
 //         return <div>{error.toString()}</div>;
 //     }
@@ -80,7 +81,7 @@ export default class LoginModel {
     // };
 
     public get posts() {
-        return this.userService.posts;
+        return this.userService.posts(useGetPostsQuery);
     }
 
     constructor() {}

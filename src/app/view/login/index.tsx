@@ -45,8 +45,8 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
         });
 
         content = <div className={containerClassname}>{renderedPosts}</div>;
-    } else if (isError && error) {
-        content = <div>{error.toString()}</div>;
+    } else if (isError) {
+        content = <div>{error?.toString()}</div>;
     }
 
     return (
